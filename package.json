@@ -1,0 +1,38 @@
+{
+	"name": "pokedex",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack",
+		"watch": "npx webpack --watch",
+		"sass": "sass ./sass/style.scss ./src/style.css --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/catherineagl/pokedex.git"
+	},
+	"author": "Catherine Aguilera | catherineaguilera13@gmail.com",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/catherineagl/pokedex/issues"
+	},
+	"homepage": "https://github.com/catherineagl/pokedex#readme",
+	"devDependencies": {
+		"@babel/core": "^7.16.0",
+		"@babel/plugin-transform-runtime": "^7.16.0",
+		"@babel/preset-env": "^7.16.0",
+		"babel-loader": "^8.2.3",
+		"css-loader": "^6.5.1",
+		"file-loader": "^6.2.0",
+		"html-loader": "^3.0.1",
+		"html-webpack-plugin": "^5.5.0",
+		"image-webpack-loader": "^8.0.1",
+		"mini-css-extract-plugin": "^2.4.4",
+		"webpack": "^5.64.1",
+		"webpack-cli": "^4.9.1"
+	},
+	"dependencies": {
+		"@babel/runtime": "^7.16.3"
+	}
+}
