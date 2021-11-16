@@ -4,7 +4,9 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Pokemon</title>
+		<title>Pokedex</title>
+		<link rel="icon" href="assets/pokeball.png" type="image/x-icon" />
+
 		<link rel="stylesheet" href="style.css" />
 		<link
 			rel="stylesheet"
@@ -19,21 +21,28 @@
 			<header>
 				<section class="header header-top">
 					<div class="logo">
-						<h1>My Pokedex</h1>
-						<div class="img-logo"></div>
+						<div class="img-logo">
+							<img src="./assets/pokeball.png" alt="" />
+						</div>
+						<h1>My Pokede<span class="special-letter">x</span></h1>
 					</div>
 					<nav>
-						<a href="#">Pokemons</a>
-						<a href="#">Arenas</a>
+						<a href="#" class="button">Pokemons</a>
+						<a href="#" class="button">Arenas</a>
 					</nav>
 				</section>
 				<section class="header header-bottom">
 					<div class="search-bar">
-						<input type="search" name="" id="" />
-						<button><i class="fa fa-search" aria-hidden="true"></i></button>
+						<input
+							type="search"
+							name=""
+							id="search-poke"
+							placeholder="Pokemon name..."
+						/>
+						<a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
 					</div>
 				</section>
-				<section class="navigation">
+				<section class="navigation header">
 					<div class="tabs">
 						<a href="#">All</a>
 						<a href="#">Favorites</a>
@@ -44,6 +53,6 @@
 			<main class="grid-fluid wrapper"></main>
 			<footer>Design and develop by Catherine Aguilera | 2021</footer>
 		</div>
-		<script src="index.js"></script>
+		<script src="index.js" type="module"></script>
 	</body>
 </html>

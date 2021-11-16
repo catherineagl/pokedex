@@ -11,9 +11,21 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	background-color: #161616;
 }
 
 .wrapper {
 	width: 80%;
 	margin: 0 auto;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+	color: $light-color;
+}
+
+input {
+	border: none;
+	outline: none;
 }

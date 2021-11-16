@@ -1,0 +1,98 @@
+header {
+	width: 100vw;
+	font-family: 'Poppins', cursive;
+	.header {
+		display: flex;
+		width: 100%;
+		padding: 1% 5%;
+	}
+	.header-top {
+		justify-content: space-between;
+	}
+	.logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		h1 {
+			font-weight: bold;
+			letter-spacing: 1px;
+			font-size: 2rem;
+			margin-left: 0.5rem;
+			color: white;
+			.special-letter {
+				color: $red;
+				display: inline-block;
+				font-size: 2.2rem;
+				transform: rotate(15deg);
+			}
+		}
+
+		.img-logo {
+			width: 5rem;
+			height: 5rem;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+	nav {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.button {
+			box-sizing: content-box;
+			border-width: 2px;
+			border-style: solid;
+			border-image: linear-gradient(to right bottom, #161616, #ff1c1c);
+			border-image-slice: 1;
+			margin: 0 0.5rem;
+			padding: 0.25rem 0.5rem;
+		}
+		.button:hover,
+		.button:focus,
+		.button.active {
+			background: linear-gradient(to right, #ff1c1c, #161616) border-box;
+			border: 3px solid transparent;
+			color: #fff;
+			transition: all 0.5s ease;
+			transition-property: all;
+			transition-duration: 0.5s;
+			transition-timing-function: ease;
+			transition-delay: 0s;
+		}
+	}
+
+	.header-bottom {
+		justify-content: center;
+		background-color: $dark-color;
+		padding: 2rem;
+
+		.search-bar {
+			background-color: $light-color;
+			padding: 0.2rem;
+
+			a {
+				display: inline-block;
+				color: #161616;
+				border-left: 1px solid #666;
+
+				i {
+					pointer-events: none;
+				}
+			}
+			input,
+			a {
+				padding: 0.25rem 0.5rem;
+				background-color: transparent;
+				outline: none;
+				font-size: 1.2rem;
+			}
+		}
+	}
+	.navigation {
+		justify-content: flex-end;
+	}
+}
