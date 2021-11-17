@@ -73,9 +73,9 @@ header {
 		.search-bar {
 			background-color: $light-color;
 			padding: 0.2rem;
+			box-shadow: -4px 10px 19px 1px rgba(0, 0, 0, 0.75);
 
 			a {
-				display: inline-block;
 				color: #161616;
 				border-left: 1px solid #666;
 
@@ -91,8 +91,49 @@ header {
 				font-size: 1.2rem;
 			}
 		}
+		.search-bar:hover {
+			opacity: 0.9;
+		}
 	}
 	.navigation {
-		justify-content: flex-end;
+		justify-content: space-between;
+
+		.tabs {
+			width: fit-content;
+			.tab {
+				padding: 0.5rem 1rem;
+				background-color: $light-color;
+				color: #161616;
+				font-weight: 600;
+				margin: 0 0.2rem;
+			}
+			.tab:hover,
+			.tab:focus,
+			.tab.active {
+				background-color: #161616;
+				border: 2px solid $light-color;
+				color: $light-color;
+			}
+		}
+
+		.links {
+			margin: auto;
+			transform: translateX(100%);
+			.link {
+				padding: 0.5rem 1rem;
+				background-color: $light-color;
+				color: #161616;
+				font-weight: 600;
+				margin: 0 0.2rem;
+
+				i {
+					font-size: 1.2rem;
+				}
+			}
+
+			.link:hover {
+				opacity: 0.9;
+			}
+		}
 	}
 }

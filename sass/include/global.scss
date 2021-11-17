@@ -3,15 +3,19 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-
-.container {
+body {
 	width: 100vw;
+	overflow-x: hidden;
+}
+.container {
+	max-width: 100vw;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	background-color: #161616;
+	font-family: 'Poppins', cursive;
 }
 
 .wrapper {
@@ -28,4 +32,29 @@ a {
 input {
 	border: none;
 	outline: none;
+}
+
+footer {
+	font-weight: lighter;
+	color: $light-color;
+	padding: 0.5rem;
+
+	.special {
+		font-weight: 400;
+	}
+}
+
+.loader {
+	margin: auto;
+	display: inline-block;
+}
+
+.error {
+	width: 50%;
+	margin: auto;
+	padding: 4rem 2rem;
+	background-color: $second-dark-color;
+	color: $light-color;
+	border-radius: 1rem;
+	font-size: 1.5rem;
 }
