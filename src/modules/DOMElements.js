@@ -23,7 +23,9 @@ const createCard = (pokemons, prevLink = null, nextLink = null) => {
 			<div class="card">
 				<div class="content">
 					<div class="info card-title">
-					<h3>${pokemon.name.toUpperCase()} <span><i class="far fa-star" aria-hidden="true"></i></span></h3>
+					<h3>${pokemon.name.toUpperCase()} <span class="favorite" data-id="${
+			pokemon.id
+		}"><i class="far fa-star" aria-hidden="true"></i></span></h3>
 					</div>
 
 					<div class="img-container">
@@ -36,7 +38,9 @@ const createCard = (pokemons, prevLink = null, nextLink = null) => {
 				</div>
 
 				<div class="sci">
-					<a href="#" class="btn check-poke">Check Pokemon</a>
+					<a href="https://pokeapi.co/api/v2/pokemon/${
+						pokemon.id
+					}/" class="btn check-poke">Check Pokemon</a>
 				</div>
 			</div>
 			`;
@@ -53,10 +57,10 @@ const createCard = (pokemons, prevLink = null, nextLink = null) => {
 	}
 
 	let $prevLink = prevLink
-		? `<a href="${prevLink}" class="link"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>`
+		? `<a href="${prevLink}" class="link">Previous <i class="fa fa-arrow-left" aria-hidden="true"></i></a>`
 		: '';
 	let $nextLink = nextLink
-		? `<a href="${nextLink}" class="link"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>`
+		? `<a href="${nextLink}" class="link">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></a>`
 		: '';
 
 	$main.innerHTML = $template;

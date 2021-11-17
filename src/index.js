@@ -18,4 +18,23 @@ d.addEventListener('click', (e) => {
 		let poke = getPokemonToSearch();
 		loadPokemons(`${pokeAPI}?limit=100000`, poke);
 	}
+	if (e.target.matches('.check-poke')) {
+		e.preventDefault();
+		let link = e.target.getAttribute('href');
+		console.log(`${pokeAPI + link}/`);
+	}
+	if (e.target.matches('.favorite')) {
+		let id = e.target.dataset.id;
+		let btn = d.querySelector(`span[data-id="${id}"] i`);
+
+		if (btn.classList.contains('far')) {
+			btn.classList.replace('far', 'fa');
+			return;
+		}
+		if (btn.classList.contains('fa')) {
+			btn.classList.replace('fa', 'far');
+			return;
+		}
+		console.log(btn);
+	}
 });
