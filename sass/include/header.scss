@@ -37,34 +37,15 @@ header {
 			}
 		}
 	}
-	nav {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 
-		.button {
-			box-sizing: content-box;
-			border-width: 2px;
-			border-style: solid;
-			border-image: linear-gradient(to right bottom, #161616, #ff1c1c);
-			border-image-slice: 1;
-			margin: 0 0.5rem;
-			padding: 0.25rem 0.5rem;
-		}
-		.button:hover,
-		.button:focus,
-		.button.active {
-			background: linear-gradient(to right, #ff1c1c, #161616) border-box;
-			border: 3px solid transparent;
-			color: #fff;
-			transition: all 0.5s ease;
-			transition-property: all;
-			transition-duration: 0.5s;
-			transition-timing-function: ease;
-			transition-delay: 0s;
+	.img-decoration {
+		width: 200px;
+		height: 100px;
+		img {
+			width: 100%;
+			height: 100%;
 		}
 	}
-
 	.header-bottom {
 		justify-content: center;
 		background-color: $dark-color;
@@ -74,6 +55,7 @@ header {
 			background-color: $light-color;
 			padding: 0.2rem;
 			box-shadow: -4px 10px 19px 1px rgba(0, 0, 0, 0.75);
+			border-radius: 0.5rem;
 
 			a {
 				color: #161616;
@@ -103,6 +85,7 @@ header {
 			.tab {
 				padding: 0.5rem 1rem;
 				background-color: $light-color;
+				border: 2px solid $light-color;
 				color: #161616;
 				font-weight: 600;
 				margin: 0 0.2rem;
@@ -111,14 +94,13 @@ header {
 			.tab:focus,
 			.tab.active {
 				background-color: #161616;
-				border: 2px solid $light-color;
 				color: $light-color;
 			}
 		}
 
 		.links {
 			margin: auto;
-			transform: translateX(100%);
+			transform: translateX(50%);
 			.link {
 				padding: 0.5rem 1rem;
 				background-color: $light-color;
@@ -128,6 +110,7 @@ header {
 
 				i {
 					font-size: 1.2rem;
+					pointer-events: none;
 				}
 			}
 

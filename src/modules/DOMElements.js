@@ -1,7 +1,13 @@
 import pokeball from '../assets/pokeball.png';
-
+import pikachu from '../assets/pika.png';
+import bg from '../assets/bg-pokes.png';
 const d = document;
 const $main = d.querySelector('main');
+const $imgContainer = d.querySelector('.img-decoration');
+
+$imgContainer.innerHTML = `
+	<img src="${bg}" alt="" />
+`;
 
 const createCard = (pokemons, prevLink = null, nextLink = null) => {
 	let $template = '';
@@ -57,7 +63,7 @@ const createCard = (pokemons, prevLink = null, nextLink = null) => {
 	}
 
 	let $prevLink = prevLink
-		? `<a href="${prevLink}" class="link">Previous <i class="fa fa-arrow-left" aria-hidden="true"></i></a>`
+		? `<a href="${prevLink}" class="link"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</a>`
 		: '';
 	let $nextLink = nextLink
 		? `<a href="${nextLink}" class="link">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></a>`
@@ -71,6 +77,11 @@ const createError = (err) => {
 	console.log(err);
 	//let message = err.statusText || msg;
 	//$main.innerHTML = `<p>Error ${err.status}: ${message}</p>`;
-	$main.innerHTML = `<p class="error">${err}</p>`;
+	$main.innerHTML = `
+		<div class="error-container">
+			<img src="${pikachu}">
+			<p class="error">${err}</p>
+		</div>
+	`;
 };
 export { createCard, createError };

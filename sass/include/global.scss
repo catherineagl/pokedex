@@ -49,12 +49,22 @@ footer {
 	display: inline-block;
 }
 
-.error {
+.error-container {
 	width: 50%;
+	height: 20vh;
 	margin: auto;
 	padding: 4rem 2rem;
 	background-color: $second-dark-color;
 	color: $light-color;
 	border-radius: 1rem;
 	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	img {
+		width: 100%;
+		height: 200px;
+	}
 }

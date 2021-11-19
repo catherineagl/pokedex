@@ -9,6 +9,7 @@ d.addEventListener('DOMContentLoaded', (e) => loadPokemons(pokeAPI));
 d.addEventListener('click', (e) => {
 	if (e.target.matches('.links .link')) {
 		e.preventDefault();
+		console.log('next btn');
 		let link = e.target.getAttribute('href');
 		loadPokemons(link);
 	}
