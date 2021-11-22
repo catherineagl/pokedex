@@ -50,33 +50,72 @@ header {
 		justify-content: center;
 		background-color: $dark-color;
 		padding: 2rem;
+		background: $dark-color;
+		background: -webkit-linear-gradient(to right, #243b55, $dark-color);
+		background: linear-gradient(to right, #243b55, $dark-color);
+		.searchbox {
+			position: relative;
+			display: block;
+			width: 100%;
+			max-width: 53px;
+			transition: 0.4s linear;
+			overflow: hidden;
+			.searchbox__input {
+				display: block;
+				appearance: none;
+				width: 100%;
 
-		.search-bar {
-			background-color: $light-color;
-			padding: 0.2rem;
-			box-shadow: -4px 10px 19px 1px rgba(0, 0, 0, 0.75);
-			border-radius: 0.5rem;
+				border: none;
+				outline: none;
+				border-radius: 50px;
 
-			a {
-				color: #161616;
-				border-left: 1px solid #666;
+				background-color: #24233a;
 
-				i {
-					pointer-events: none;
+				padding: 15px;
+				color: #24233a;
+				font-size: 20px;
+				cursor: pointer;
+				transition: 0.4s linear;
+
+				&::placeholder {
+					color: #24233a;
 				}
 			}
-			input,
-			a {
-				padding: 0.25rem 0.5rem;
-				background-color: transparent;
-				outline: none;
-				font-size: 1.2rem;
+			.searchbox__icon {
+				position: absolute;
+				right: calc(53px / 2);
+				top: 50%;
+				transform: translate(50%, -50%);
+
+				width: 20px;
+				height: 20px;
+
+				pointer-events: none;
+
+				path {
+					fill: $grass;
+					transition: 0.4s linear;
+				}
+			}
+
+			&:focus-within {
+				max-width: 300px;
+
+				.searchbox__input {
+					background-color: #fff;
+					padding-right: 50px;
+					box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.4);
+				}
+
+				.searchbox__icon {
+					path {
+						fill: #24233a;
+					}
+				}
 			}
 		}
-		.search-bar:hover {
-			opacity: 0.9;
-		}
 	}
+
 	.navigation {
 		justify-content: space-between;
 

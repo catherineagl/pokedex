@@ -1,20 +1,9 @@
-import pokeball from '../assets/pokeball.png';
-import pikachu from '../assets/pika.png';
-import bg from '../assets/bg-pokes.png';
 const d = document;
 const $main = d.querySelector('main');
-const $imgContainer = d.querySelector('.img-decoration');
-
-$imgContainer.innerHTML = `
-	<img src="${bg}" alt="" />
-`;
 
 const createCard = (pokemons, prevLink = null, nextLink = null) => {
 	let $template = '';
 	let $links = d.querySelector('.links');
-	let $logo = d.querySelector('.img-logo');
-
-	$logo.innerHTML = `<img src="${pokeball}" alt="pokeball" />`;
 
 	for (let i = 0; i < pokemons.length; i++) {
 		let pokemon = pokemons[i];
@@ -79,7 +68,7 @@ const createError = (err) => {
 	//$main.innerHTML = `<p>Error ${err.status}: ${message}</p>`;
 	$main.innerHTML = `
 		<div class="error-container">
-			<img src="${pikachu}">
+			<img src="../assets/pika.png">
 			<p class="error">${err}</p>
 		</div>
 	`;

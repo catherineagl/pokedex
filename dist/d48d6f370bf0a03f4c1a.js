@@ -1,1 +1,0 @@
-import style from"./style.css";alert("workin"),console.log("hi");
