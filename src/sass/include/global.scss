@@ -45,8 +45,12 @@ footer {
 }
 
 .loader {
-	margin: auto;
-	display: inline-block;
+	svg {
+		width: 20%;
+		height: 20%;
+		margin: 2rem auto;
+		display: inline-block;
+	}
 }
 
 .error-container {

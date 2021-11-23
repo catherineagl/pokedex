@@ -1,4 +1,5 @@
 import { createCard, createError } from './DOMElements';
+import { showError } from './utils';
 
 const d = document;
 const input = d.getElementById('search-poke');
@@ -20,7 +21,7 @@ async function searchPokemon(obj) {
 	}
 
 	if (pokemons.length <= 0) {
-		createError('No pokemons found:(');
+		showError('No pokemons found:(');
 		return;
 	}
 

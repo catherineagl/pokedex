@@ -4,6 +4,7 @@ import { loadPokemons } from './modules/APICall';
 import { getPokemonToSearch, searchPokemon } from './modules/searchPoke';
 
 const d = document;
+const input = d.getElementById('search-poke');
 let pokeAPI = 'https://pokeapi.co/api/v2/pokemon/';
 
 d.addEventListener('DOMContentLoaded', (e) => loadPokemons(pokeAPI));
@@ -16,15 +17,10 @@ d.addEventListener('click', (e) => {
 		loadPokemons(link);
 	}
 
-	if (e.target.matches('.search-btn')) {
-		e.preventDefault();
-		let poke = getPokemonToSearch();
-		loadPokemons(`${pokeAPI}?limit=100000`, poke);
-	}
 	if (e.target.matches('.check-poke')) {
 		e.preventDefault();
 		let link = e.target.getAttribute('href');
-		console.log(`${pokeAPI + link}/`);
+		console.log(`${pokeAPI + link}`);
 	}
 	if (e.target.matches('.favorite')) {
 		let id = e.target.dataset.id;
@@ -38,6 +34,20 @@ d.addEventListener('click', (e) => {
 			btn.classList.replace('fa', 'far');
 			return;
 		}
-		console.log(btn);
+
+		//	console.log(btn);
+	}
+	if (
+		e.target.matches('.swal2-container') ||
+		e.target.matches('.swal2-confirm')
+	) {
+		window.location.reload();
+	}
+});
+
+input.addEventListener('keyup', (e) => {
+	if (e.key === 'Enter') {
+		let poke = getPokemonToSearch();
+		loadPokemons(`${pokeAPI}?limit=100000`, poke);
 	}
 });
