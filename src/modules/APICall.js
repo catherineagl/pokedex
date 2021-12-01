@@ -1,10 +1,12 @@
 import { createCard } from './DOMElements';
 import { searchPokemon } from './searchPoke';
-import { loadingAnimation } from './utils';
+import {
+	checkFavoriteMark,
+	loadingAnimation,
+	showFavoritesPokes,
+} from './utils';
 
-const d = document;
-
-async function loadPokemons(url, poke = null) {
+async function loadPokemons(action, url, poke = null) {
 	try {
 		loadingAnimation();
 		let res = await fetch(url),
@@ -25,18 +27,26 @@ async function loadPokemons(url, poke = null) {
 					pokemon = await res.json();
 
 				if (!res.ok) throw { status: res.status, statusText: res.statusText };
-
 				pokemons.push(pokemon);
 			} catch (err) {
 				pokemons.push(err);
 			}
 		}
-		if (poke) {
+
+		if (action === 'search') {
 			searchPokemon({ pokemons, poke });
+			checkFavoriteMark();
 		}
-		if (!poke) {
+		if (action === 'start' || action === 'btnNav') {
 			createCard(pokemons, prevLink, nextLink);
+			checkFavoriteMark();
 		}
+		if (action === 'favorites') {
+			showFavoritesPokes({ pokemons });
+			checkFavoriteMark();
+		}
+
+		//console.log({ pokemons, prevLink, nextLink, poke });
 	} catch (err) {
 		console.log(err);
 	}

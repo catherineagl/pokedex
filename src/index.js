@@ -34,14 +34,22 @@ d.addEventListener('click', (e) => {
 	) {
 		window.location.reload();
 	}
-	if (e.target.matches('#showFavPokes')) {
-		e.preventDefault();
-		let url = e.target.href;
-		loadPokemons('favorites', url);
-	}
-	if (e.target.matches('#showAllPokes')) {
-		e.preventDefault();
-		window.location.reload();
+
+	if (e.target.matches('.tab')) {
+		let tab = d.querySelector('.tab.active');
+		tab.classList.remove('active');
+		e.target.classList.add('active');
+
+		if (e.target.matches('#showFavPokes')) {
+			e.preventDefault();
+			let url = e.target.href;
+			loadPokemons('favorites', url);
+		}
+
+		if (e.target.matches('#showAllPokes')) {
+			e.preventDefault();
+			window.location.reload();
+		}
 	}
 });
 

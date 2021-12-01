@@ -39,6 +39,7 @@ const createCard = (pokemons, prevLink = null, nextLink = null) => {
 				</div>
 			</div>
 			`;
+
 		if (!pokemon.name) {
 			console.log(pokemon);
 			/* let message = err.statusText || 'Something went wrong...';

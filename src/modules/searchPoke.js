@@ -1,4 +1,4 @@
-import { createCard, createError } from './DOMElements';
+import { createCard } from './DOMElements';
 import { showError } from './utils';
 
 const d = document;
@@ -11,7 +11,7 @@ function getPokemonToSearch() {
 	return search;
 }
 
-async function searchPokemon(obj) {
+function searchPokemon(obj) {
 	const pokemons = [];
 	for (let i = 0; i < obj.pokemons.length; i++) {
 		let pokemon = obj.pokemons[i];
@@ -27,4 +27,5 @@ async function searchPokemon(obj) {
 
 	createCard(pokemons);
 }
+
 export { getPokemonToSearch, searchPokemon };
