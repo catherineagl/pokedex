@@ -2,19 +2,21 @@ import './sass/main.scss';
 
 import { loadPokemons } from './modules/APICall';
 import { getPokemonToSearch, searchPokemon } from './modules/searchPoke';
+import { checkFavoriteMark, saveFavorites } from './modules/utils';
 
 const d = document;
 const input = d.getElementById('search-poke');
 let pokeAPI = 'https://pokeapi.co/api/v2/pokemon/';
 
-d.addEventListener('DOMContentLoaded', (e) => loadPokemons(pokeAPI));
+d.addEventListener('DOMContentLoaded', (e) => {
+	loadPokemons('start', pokeAPI);
+});
 
 d.addEventListener('click', (e) => {
 	if (e.target.matches('.links .link')) {
 		e.preventDefault();
-		console.log('next btn');
 		let link = e.target.getAttribute('href');
-		loadPokemons(link);
+		loadPokemons('btnNav', link);
 	}
 
 	if (e.target.matches('.check-poke')) {
@@ -23,19 +25,8 @@ d.addEventListener('click', (e) => {
 		console.log(`${pokeAPI + link}`);
 	}
 	if (e.target.matches('.favorite')) {
-		let id = e.target.dataset.id;
-		let btn = d.querySelector(`span[data-id="${id}"] i`);
-
-		if (btn.classList.contains('far')) {
-			btn.classList.replace('far', 'fa');
-			return;
-		}
-		if (btn.classList.contains('fa')) {
-			btn.classList.replace('fa', 'far');
-			return;
-		}
-
-		//	console.log(btn);
+		saveFavorites(e.target);
+		checkFavoriteMark();
 	}
 	if (
 		e.target.matches('.swal2-container') ||
@@ -43,11 +34,20 @@ d.addEventListener('click', (e) => {
 	) {
 		window.location.reload();
 	}
+	if (e.target.matches('#showFavPokes')) {
+		e.preventDefault();
+		let url = e.target.href;
+		loadPokemons('favorites', url);
+	}
+	if (e.target.matches('#showAllPokes')) {
+		e.preventDefault();
+		window.location.reload();
+	}
 });
 
 input.addEventListener('keyup', (e) => {
 	if (e.key === 'Enter') {
 		let poke = getPokemonToSearch();
-		loadPokemons(`${pokeAPI}?limit=100000`, poke);
+		loadPokemons('search', `${pokeAPI}?limit=100000`, poke);
 	}
 });
