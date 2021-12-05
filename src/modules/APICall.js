@@ -1,4 +1,4 @@
-import { createCard } from './DOMElements';
+import { createCard, createSP } from './DOMElements';
 import { searchPokemon } from './searchPoke';
 import {
 	checkFavoriteMark,
@@ -16,6 +16,11 @@ async function loadPokemons(action, url, poke = null) {
 			nextLink;
 
 		if (!res.ok) throw { status: res.status, statusText: res.statusText };
+
+		if (action === 'singlePage') {
+			createSP(json);
+			return;
+		}
 
 		prevLink = json.previous;
 		nextLink = json.next;
@@ -51,5 +56,10 @@ async function loadPokemons(action, url, poke = null) {
 		console.log(err);
 	}
 }
-
-export { loadPokemons };
+async function fetchData(url) {
+	let res = await fetch(url);
+	let json = res.json();
+	if (!res.ok) return;
+	return json;
+}
+export { loadPokemons, fetchData };

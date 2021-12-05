@@ -1,0 +1,61 @@
+.single-card {
+	width: 80%;
+	margin: auto;
+	height: auto;
+	flex-wrap: wrap;
+	color: white;
+	justify-content: space-evenly;
+	padding: 2rem 0;
+
+	position: relative;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0 1rem 35px rgba(0, 0, 0, 0.5);
+	border-radius: 1rem;
+	display: flex;
+	align-items: center;
+	backdrop-filter: blur(10px);
+
+	.card-content {
+		.card-title {
+			margin: 1rem 0;
+			text-align: center;
+		}
+		.card-description {
+			text-align: justify;
+			> h3 {
+				font-weight: 200;
+				span {
+					font-weight: 400;
+				}
+			}
+		}
+
+		.board {
+			display: flex;
+			background-color: #222;
+			border: 1px solid #333;
+			box-shadow: 0 1rem 35px rgba(0, 0, 0, 0.5);
+			margin: 2rem 0;
+
+			.stat {
+				border-right: 1px solid #444;
+				h4 {
+					padding: 0.5rem;
+				}
+				.stat-name {
+					background-color: $red;
+				}
+			}
+		}
+	}
+	.carousel {
+		.img-container {
+			width: 200px;
+			height: 200px;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}

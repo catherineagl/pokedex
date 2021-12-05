@@ -1,3 +1,5 @@
+import { fetchData } from './APICall';
+
 const d = document;
 const $main = d.querySelector('main');
 
@@ -18,7 +20,9 @@ const createCard = (pokemons, prevLink = null, nextLink = null) => {
 			<div class="card">
 				<div class="content">
 					<div class="info card-title">
-					<h3>${pokemon.name.toUpperCase()} <span class="favorite" data-id="${
+					<h3>${pokemon.name
+						.toUpperCase()
+						.replace('-', ' ')} <span class="favorite" data-id="${
 			pokemon.id
 		}"><i class="far fa-star" aria-hidden="true"></i></span></h3>
 					</div>
@@ -74,4 +78,77 @@ const createError = (err) => {
 		</div>
 	`;
 };
-export { createCard, createError };
+
+const createSP = async (pokemon) => {
+	let $links = d.querySelector('.links');
+	$links.innerHTML = '';
+	let $template = '';
+	let pokeTypes = [];
+	let pokeType = pokemon.types;
+	pokeType.forEach((x) => {
+		pokeTypes.push(x.type.name);
+	});
+	let pokeSpecie = await fetchData(pokemon.species.url);
+	let habitat = pokeSpecie.habitat.name;
+	let pokeAbilities = [];
+	pokemon.abilities.forEach((x) => {
+		pokeAbilities.push(x.ability.name);
+	});
+	let fragment = '';
+	let pokeCharacteristics = await fetchData(
+		`https://pokeapi.co/api/v2/characteristic/${pokemon.id}/`
+	);
+	let pokeDescription = pokeCharacteristics.descriptions[2].description;
+	let highest = pokeCharacteristics['highest_stat'].name;
+	console.log(pokeDescription);
+
+	$template += `
+	<div class="single-card">
+
+		<section class="carousel">
+			<div class="img-container">
+				<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+			</div>
+		</section>
+
+		<section class="card-content">
+			<article class="card-description">
+				<div class="card-title">
+					<h3>${pokemon.name.toUpperCase().replace('-', ' ')} 
+						<span class="favorite" data-id="${pokemon.id}">
+							<i class="far fa-star" aria-hidden="true"></i>
+						</span>
+					</h3>
+				</div>
+				<h3>Description: <span>${pokeDescription}</span></h3>
+				<h3>Highest stat: <span>${highest}</span></h3>
+				<h3>Pokemon type: <span>${pokeTypes.join(', ')}</span></h3>
+				<h3>Habitat: <span>${habitat}</span> </h3>
+				<h3>Abilities: <span>${pokeAbilities.join(', ').replace('-', ' ')}</span></h3>
+				<h3>Height: <span>${(pokemon.height / 3.048).toFixed(2)} ft</span> </h3>
+				<h3>Weight: <span>${(pokemon.weight / 4.536).toFixed(2)} pounds</span> </h3>
+			
+				</article>
+			
+			<article class="board">
+				
+			</article>
+			
+		</section>
+	</div>
+	`;
+
+	let stats = pokemon.stats;
+	stats.forEach((item) => {
+		fragment += `
+		<div class="stat">
+			<h4 class="stat-name">${item.stat.name.replace('-', ' ')}</h4>
+			<h4 class="stat-num">${item['base_stat']}</h4>
+		</div>
+		`;
+	});
+	$main.innerHTML = $template;
+	let boardStat = d.querySelector('.board');
+	boardStat.innerHTML = fragment;
+};
+export { createCard, createError, createSP };

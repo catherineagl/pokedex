@@ -22,7 +22,7 @@ d.addEventListener('click', (e) => {
 	if (e.target.matches('.check-poke')) {
 		e.preventDefault();
 		let link = e.target.getAttribute('href');
-		console.log(`${pokeAPI + link}`);
+		loadPokemons('singlePage', link);
 	}
 	if (e.target.matches('.favorite')) {
 		saveFavorites(e.target);
