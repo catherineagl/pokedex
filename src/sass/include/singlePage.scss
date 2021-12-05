@@ -2,7 +2,6 @@
 	width: 80%;
 	margin: auto;
 	height: auto;
-	flex-wrap: wrap;
 	color: white;
 	justify-content: space-evenly;
 	padding: 2rem 0;
@@ -19,6 +18,14 @@
 		.card-title {
 			margin: 1rem 0;
 			text-align: center;
+			span {
+				cursor: pointer;
+				i {
+					font-size: 1.2rem;
+					color: $gold;
+					pointer-events: none;
+				}
+			}
 		}
 		.card-description {
 			text-align: justify;
@@ -49,12 +56,23 @@
 		}
 	}
 	.carousel {
+		background-color: rgba(255, 255, 255, 0.05);
+		border-radius: 50%;
 		.img-container {
-			width: 200px;
-			height: 200px;
+			max-width: 250px;
+			max-height: 250px;
+			min-width: 150px;
+			padding: 0.5rem;
 			img {
 				width: 100%;
 				height: auto;
+				transition: all 0.3s ease-in-out;
+			}
+		}
+
+		.img-container:hover {
+			img {
+				transform: scale(1.3);
 			}
 		}
 	}

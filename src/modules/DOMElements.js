@@ -1,4 +1,5 @@
 import { fetchData } from './APICall';
+import { getLocalPokemons } from './utils';
 
 const d = document;
 const $main = d.querySelector('main');
@@ -100,14 +101,20 @@ const createSP = async (pokemon) => {
 	);
 	let pokeDescription = pokeCharacteristics.descriptions[2].description;
 	let highest = pokeCharacteristics['highest_stat'].name;
-	console.log(pokeDescription);
+	let allIds = getLocalPokemons();
+	let className = 'far';
+	if (allIds.includes(pokemon.id.toString())) {
+		className = 'fa';
+	}
 
 	$template += `
 	<div class="single-card">
 
 		<section class="carousel">
 			<div class="img-container">
-				<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+				<img src="${pokemon.sprites.other.dream_world.front_default}" alt="${
+		pokemon.name
+	}">
 			</div>
 		</section>
 
@@ -116,12 +123,12 @@ const createSP = async (pokemon) => {
 				<div class="card-title">
 					<h3>${pokemon.name.toUpperCase().replace('-', ' ')} 
 						<span class="favorite" data-id="${pokemon.id}">
-							<i class="far fa-star" aria-hidden="true"></i>
+							<i class="${className} fa-star" aria-hidden="true"></i>
 						</span>
 					</h3>
 				</div>
 				<h3>Description: <span>${pokeDescription}</span></h3>
-				<h3>Highest stat: <span>${highest}</span></h3>
+				<h3>Highest stat: <span>${highest.replace('-', ' ')}</span></h3>
 				<h3>Pokemon type: <span>${pokeTypes.join(', ')}</span></h3>
 				<h3>Habitat: <span>${habitat}</span> </h3>
 				<h3>Abilities: <span>${pokeAbilities.join(', ').replace('-', ' ')}</span></h3>
@@ -147,8 +154,13 @@ const createSP = async (pokemon) => {
 		</div>
 		`;
 	});
+
 	$main.innerHTML = $template;
 	let boardStat = d.querySelector('.board');
 	boardStat.innerHTML = fragment;
 };
+
+/* const createCarousel = (sprites) => {
+
+} */
 export { createCard, createError, createSP };
