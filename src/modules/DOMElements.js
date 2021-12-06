@@ -118,30 +118,23 @@ const createSP = async (pokemon) => {
 			</div>
 		</section>
 
-		<section class="card-content">
-			<article class="card-description">
-				<div class="card-title">
-					<h3>${pokemon.name.toUpperCase().replace('-', ' ')} 
-						<span class="favorite" data-id="${pokemon.id}">
-							<i class="${className} fa-star" aria-hidden="true"></i>
-						</span>
-					</h3>
-				</div>
-				<h3>Description: <span>${pokeDescription}</span></h3>
-				<h3>Highest stat: <span>${highest.replace('-', ' ')}</span></h3>
-				<h3>Pokemon type: <span>${pokeTypes.join(', ')}</span></h3>
-				<h3>Habitat: <span>${habitat}</span> </h3>
-				<h3>Abilities: <span>${pokeAbilities.join(', ').replace('-', ' ')}</span></h3>
-				<h3>Height: <span>${(pokemon.height / 3.048).toFixed(2)} ft</span> </h3>
-				<h3>Weight: <span>${(pokemon.weight / 4.536).toFixed(2)} pounds</span> </h3>
-			
-				</article>
-			
-			<article class="board">
-				
-			</article>
-			
+		<section class="card-description">
+			<div class="card-title">
+				<h3>${pokemon.name.toUpperCase().replace('-', ' ')} 
+					<span class="favorite" data-id="${pokemon.id}">
+						<i class="${className} fa-star" aria-hidden="true"></i>
+					</span>
+				</h3>
+			</div>
+			<h3>Description: <span>${pokeDescription}</span></h3>
+			<h3>Highest stat: <span>${highest.replace('-', ' ')}</span></h3>
+			<h3>Pokemon type: <span>${pokeTypes.join(', ')}</span></h3>
+			<h3>Habitat: <span>${habitat}</span> </h3>
+			<h3>Abilities: <span>${pokeAbilities.join(', ').replace('-', ' ')}</span></h3>
+			<h3>Height: <span>${(pokemon.height / 3.048).toFixed(2)} ft</span> </h3>
+			<h3>Weight: <span>${(pokemon.weight / 4.536).toFixed(2)} pounds</span> </h3>	
 		</section>
+		<section class="board"></section>
 	</div>
 	`;
 
@@ -160,7 +153,4 @@ const createSP = async (pokemon) => {
 	boardStat.innerHTML = fragment;
 };
 
-/* const createCarousel = (sprites) => {
-
-} */
 export { createCard, createError, createSP };

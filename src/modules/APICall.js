@@ -54,6 +54,7 @@ async function loadPokemons(action, url, poke = null) {
 		//console.log({ pokemons, prevLink, nextLink, poke });
 	} catch (err) {
 		console.log(err);
+		showError('Sorry an error has occurred:(');
 	}
 }
 async function fetchData(url) {

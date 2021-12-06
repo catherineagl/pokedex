@@ -1,29 +1,25 @@
+@import 'breakpoints.scss';
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+html {
+	background: linear-gradient(to right, #434343, #000000);
+}
 body {
-	width: 100vw;
+	max-width: 100vw;
+
 	overflow-x: hidden;
 }
 .container {
-	max-width: 100vw;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
 	background: #000000;
+	text-align: center;
 	background: -webkit-linear-gradient(to right, #434343, #000000);
 	background: linear-gradient(to right, #434343, #000000);
 
 	font-family: 'Poppins', cursive;
-}
-
-.wrapper {
-	width: 80%;
-	margin: 0 auto;
 }
 
 a {
@@ -73,5 +69,18 @@ footer {
 	img {
 		width: 100%;
 		height: 200px;
+	}
+}
+
+/*MEDIA QUERIES*/
+
+@include media('<=425px') {
+	footer {
+		font-size: 0.7rem;
+	}
+}
+@include media('>=425px', '<=tablet') {
+	footer {
+		font-size: 0.9rem;
 	}
 }
