@@ -1,11 +1,13 @@
 {
+	"homepage": "https://catherineagl.github.io/pokedex",
 	"name": "pokedex",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"start": "webpack serve --config webpack.dev.js --open",
-		"build": "webpack --config webpack.prod.js --watch"
+		"build": "webpack --config webpack.prod.js --watch",
+		"deploy": "gh-pages -d dist"
 	},
 	"repository": {
 		"type": "git",
@@ -16,7 +18,6 @@
 	"bugs": {
 		"url": "https://github.com/catherineagl/pokedex/issues"
 	},
-	"homepage": "https://github.com/catherineagl/pokedex#readme",
 	"devDependencies": {
 		"@babel/core": "^7.16.0",
 		"@babel/plugin-transform-runtime": "^7.16.0",
@@ -37,6 +38,7 @@
 	"dependencies": {
 		"@babel/runtime": "^7.16.3",
 		"clean-webpack-plugin": "^4.0.0",
+		"gh-pages": "^3.2.3",
 		"sass": "^1.43.4",
 		"sweetalert2": "^11.2.0"
 	}
